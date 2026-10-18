@@ -62,7 +62,7 @@ export default function App() {
 
       setAuthState({
         isSignedIn: !!user,
-        userName: user?.userName || null,
+        userName: user?.username || null,
         userId: user?.uuid || null,
       })
 
@@ -90,7 +90,7 @@ export default function App() {
   return (
       <main className="min-h-screen bg-background text-foreground relative z-10">
         <Outlet
-            context = {{...authState, refreshAuth, signIn, signIn}}
+            context = {{...authState, refreshAuth, signIn, signOut}}
         />
       </main>
   );

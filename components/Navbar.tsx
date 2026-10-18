@@ -46,7 +46,7 @@ const Navbar = () => {
                     {isSignedIn ? (
                         <>
                             <span className='greeting'>
-                                {isSignedIn ? `Hi! ${username}` : 'Signed In'}
+                                {isSignedIn ? `Hi! ${userName}` : 'Signed In'}
                             </span>
 
                             <Button size="sm" onClick={handleAuthClick} className="btn">
