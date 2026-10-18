@@ -14,13 +14,46 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-    const navigate = useNavigate()
-    const [projects, setProjects] = useState<DesignItem[]>([])
-    const handleUploadComplete = async (base64Image: string) => {
-        const newId = Date.now().toString()
-        navigate(`/visualizer/${newId}`, { state: { base64Image } })
-        return true
+  const navigate = useNavigate()
+  const [projects, setProjects] = useState<DesignItem[]>([])
+  const handleUploadComplete = async (base64Image: string) => {
+    const newId = Date.now().toString()
+    const name = `Resodence ${newId}`
+
+    const newItem = {
+      id: newId, name, sourceImage: base64Image,
+      renderedImage: undefined,
+      timestamp: Date.now()
     }
+
+    let saved: DesignItem | null | undefined
+    try {
+      saved = await createProject({ item: newItem, visibility: 'private' })
+    } catch (error) {
+      console.error("Failed to save project; opening it with the uploaded image instead.", error)
+    }
+
+    setProjects((prev) => [newItem, ...prev])
+    try {
+      window.sessionStorage.setItem(`roomify-project-${newId}`, JSON.stringify({
+        initialImage: saved?.sourceImage || base64Image,
+        initialRender: saved?.renderedImage || null,
+        name,
+      }))
+    } catch (error) {
+      // The image still travels in navigation state if browser storage is full.
+      console.warn("Could not cache the project for refreshes.", error)
+    }
+
+    navigate(`/visualizer/${newId}`, {
+      state: {
+        initialImage: saved?.sourceImage || base64Image,
+        initialRender: saved?.renderedImage || null,
+        name
+      }
+    })
+    return true
+  }
   return (
       <div className="home">
         <Navbar/>
@@ -69,44 +102,49 @@ export default function Home() {
             </div>
         </section>
 
-          <section className="projects">
-              <div className="section-inner">
-                  <div className="section-head">
-                      <div className="copy">
-                          <h2>Projects</h2>
-                          <p>Your latest work and shared community projects, all in one place.</p>
-                      </div>
-                  </div>
-
-                  <div className="projects-grid">
-                      <div className="project-card group">
-                          <div className="preview">
-                              <img
-                                  src="https://roomify-mlhuk267-dfwu1i.puter.site/projects/1770803585402/rendered.png" alt="Project"
-                              />
-
-                              <div className="badge">
-                                  <span>Community</span>
-                              </div>
-                          </div>
-                              <div className="card-body">
-                                  <div>
-                                      <h3>Project Manhattan</h3>
-
-                                      <div className="meta">
-                                          <CalendarDays size={12}/>
-                                          <span>{new Date('2026-10-18T00:00:00').toLocaleDateString()}</span>
-                                          <span>By Nitika</span>
-                                      </div>
-                                  </div>
-                                  <div className="arrow">
-                                      <ArrowUpRight size={18}/>
-                                  </div>
-                              </div>
-                      </div>
-                  </div>
+        <section className="projects">
+          <div className="section-inner">
+            <div className="section-head">
+              <div className="copy">
+                <h2>Projects</h2>
+                <p>Your latest work and shared community projects, all in one place.</p>
               </div>
-          </section>
+            </div>
+
+            <div className="projects-grid">
+
+              {projects.map(({id, name, renderedImage, sourceImage, timestamp}) => (
+                <div className="project-card group">
+                  <div className="preview">
+                    <img
+                      src={renderedImage || sourceImage} alt="Project"
+                    />
+
+                    <div className="badge">
+                      <span>Community</span>
+                    </div>
+                  </div>
+                  <div className="card-body">
+                    <div>
+                      <h3>{name}</h3>
+
+                      <div className="meta">
+                        <CalendarDays size={12}/>
+                        <span>{new Date(timestamp).toLocaleDateString()}</span>
+                        <span>By Nitika</span>
+                      </div>
+                    </div>
+                    <div className="arrow">
+                      <ArrowUpRight size={18}/>
+                    </div>
+                  </div>
+                </div>
+
+              ))}
+
+            </div>
+          </div>
+        </section>
       </div>
   );
 }
