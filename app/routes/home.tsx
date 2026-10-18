@@ -1,6 +1,8 @@
 import type { Route } from "./+types/home";
+import { useNavigate } from "react-router";
 import { ArrowRight, CalendarDays, Clock, Layers, ArrowUpRight} from "lucide-react";
 import Navbar from "../../components/Navbar";
+import Upload from "../../components/Upload";
 import Button from "../../components/ui/Button";
 
 export function meta({}: Route.MetaArgs) {
@@ -11,6 +13,15 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+    const navigate = useNavigate();
+
+    const handleUploadComplete = async (base64Image: string) => {
+        const newId = crypto.randomUUID();
+
+        navigate(`/visualizer/${newId}`, { state: { base64Image } });
+
+        return true;
+    }
   return (
       <div className="home">
         <Navbar/>
@@ -54,7 +65,7 @@ export default function Home() {
                         <p>Supports JPG, PNG, formats up to 10MB</p>
                     </div>
 
-                    <p> Upload images</p>
+                    <Upload onComplete={handleUploadComplete} />
                 </div>
             </div>
         </section>
