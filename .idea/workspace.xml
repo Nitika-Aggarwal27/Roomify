@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="810317fd-c7b2-41fc-a7f6-b72c72031a13" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0001110887236428" />
+      <entry key="S2" value="1.1028589608637391" />
+      <entry key="S5" value="1.4688189603207535" />
+      <entry key="S10" value="2.19201807683896" />
+      <entry key="S30" value="6.035865730942396" />
+      <entry key="S60" value="11.183548828495912" />
+      <entry key="M2" value="19.234390883318994" />
+      <entry key="M5" value="40.5944925661358" />
+      <entry key="M10" value="79.15346153631396" />
+      <entry key="M15" value="121.46601226800196" />
+      <entry key="M30" value="230.39723447238504" />
+      <entry key="H1" value="350.94094822223695" />
+      <entry key="H2" value="445.27106768926546" />
+      <entry key="H4" value="505.18188075306284" />
+      <entry key="D1" value="563.345282637697" />
+      <entry key="W1" value="574.1699522686994" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="8.585961751862984E-228" />
+      <entry key="S2" value="2.2971001499176817E-57" />
+      <entry key="S5" value="3.8852477019020114E-23" />
+      <entry key="S10" value="1.1671148764614607E-11" />
+      <entry key="S30" value="6.576938513637616E-4" />
+      <entry key="S60" value="0.06847165669735406" />
+      <entry key="M2" value="0.8004334990971241" />
+      <entry key="M5" value="4.246441020929171" />
+      <entry key="M10" value="8.579628377577126" />
+      <entry key="M15" value="11.796976651423925" />
+      <entry key="M30" value="18.98722357213161" />
+      <entry key="H1" value="27.053899530470133" />
+      <entry key="H2" value="33.61490774687472" />
+      <entry key="H4" value="37.8795358395032" />
+      <entry key="D1" value="42.079430421321725" />
+      <entry key="W1" value="42.86673377026816" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="9.765625E-4" />
+      <entry key="MS500" value="0.25010025765390054" />
+      <entry key="S2" value="0.8073376725197388" />
+      <entry key="S5" value="1.3303749170632675" />
+      <entry key="S10" value="2.1001009963555566" />
+      <entry key="S30" value="5.949670485424675" />
+      <entry key="S60" value="11.130180822099694" />
+      <entry key="M2" value="19.86951225931133" />
+      <entry key="M5" value="44.660207618251775" />
+      <entry key="M10" value="87.57737698238321" />
+      <entry key="M15" value="133.12836528340367" />
+      <entry key="M30" value="249.28701305453092" />
+      <entry key="H1" value="377.93107217155745" />
+      <entry key="H2" value="478.84818191350126" />
+      <entry key="H4" value="543.040607033724" />
+      <entry key="D1" value="605.4209292784235" />
+      <entry key="W1" value="617.0361370088925" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3KpNXR1O2zjYLNHW8dVgQdQEb6C" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/Nitika/Documents/Projects/Roomify",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ml.llm.LLMThirdPartyAiProvidersConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2026.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10968.77" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="810317fd-c7b2-41fc-a7f6-b72c72031a13" name="Changes" comment="" />
+      <created>1792250593133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792250593133</updated>
+      <workItem from="1792250594959" duration="4351000" />
+      <workItem from="1792303398296" duration="3019000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/routes/home.tsx</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
