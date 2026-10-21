@@ -3,6 +3,7 @@ import { ArrowRight, CalendarDays, Clock, Layers, ArrowUpRight} from "lucide-rea
 import Navbar from "../../components/Navbar";
 import Upload from "../../components/Upload";
 import Button from "../../components/ui/Button";
+import { createProject } from "../../lib/puter.action";
 import {useNavigate} from "react-router";
 import {useState} from "react";
 
