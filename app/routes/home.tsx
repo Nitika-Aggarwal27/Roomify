@@ -5,7 +5,7 @@ import Upload from "../../components/Upload";
 import Button from "../../components/ui/Button";
 import { createProject } from "../../lib/puter.action";
 import {useNavigate} from "react-router";
-import {useState} from "react";
+import {useState, useRef} from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,43 +17,52 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const navigate = useNavigate()
   const [projects, setProjects] = useState<DesignItem[]>([])
+    const isCreatingProjectRef = useRef(false)
+
   const handleUploadComplete = async (base64Image: string) => {
-    const newId = Date.now().toString()
-    const name = `Resodence ${newId}`
+     try {
+         if(isCreatingProjectRef.current) return false
+         isCreatingProjectRef.current = true
+         const newId = Date.now().toString()
+         const name = `Resodence ${newId}`
 
-    const newItem = {
-      id: newId, name, sourceImage: base64Image,
-      renderedImage: undefined,
-      timestamp: Date.now()
-    }
+         const newItem = {
+             id: newId, name, sourceImage: base64Image,
+             renderedImage: undefined,
+             timestamp: Date.now()
+         }
 
-    let saved: DesignItem | null | undefined
-    try {
-      saved = await createProject({ item: newItem, visibility: 'private' })
-    } catch (error) {
-      console.error("Failed to save project; opening it with the uploaded image instead.", error)
-    }
+         let saved: DesignItem | null | undefined
+         try {
+             saved = await createProject({ item: newItem, visibility: 'private' })
+         } catch (error) {
+             console.error("Failed to save project; opening it with the uploaded image instead.", error)
+         }
 
-    setProjects((prev) => [newItem, ...prev])
-    try {
-      window.sessionStorage.setItem(`roomify-project-${newId}`, JSON.stringify({
-        initialImage: saved?.sourceImage || base64Image,
-        initialRender: saved?.renderedImage || null,
-        name,
-      }))
-    } catch (error) {
-      // The image still travels in navigation state if browser storage is full.
-      console.warn("Could not cache the project for refreshes.", error)
-    }
+         setProjects((prev) => [newItem, ...prev])
+         try {
+             window.sessionStorage.setItem(`roomify-project-${newId}`, JSON.stringify({
+                 initialImage: saved?.sourceImage || base64Image,
+                 initialRender: saved?.renderedImage || null,
+                 name,
+             }))
+         } catch (error) {
+             // The image still travels in navigation state if browser storage is full.
+             console.warn("Could not cache the project for refreshes.", error)
+         }
 
-    navigate(`/visualizer/${newId}`, {
-      state: {
-        initialImage: saved?.sourceImage || base64Image,
-        initialRender: saved?.renderedImage || null,
-        name
-      }
-    })
-    return true
+         navigate(`/visualizer/${newId}`, {
+             state: {
+                 initialImage: saved?.sourceImage || base64Image,
+                 initialRender: saved?.renderedImage || null,
+                 name
+             }
+         })
+         return true
+     } finally {
+         isCreatingProjectRef.current = false
+     }
+
   }
   return (
       <div className="home">
